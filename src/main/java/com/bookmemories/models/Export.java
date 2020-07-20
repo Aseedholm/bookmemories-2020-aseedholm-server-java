@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,8 +24,8 @@ public class Export {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  //FK referencing the book associated with the exported material.
-  private Integer bookId;
+//  //FK referencing the book associated with the exported material.
+//  private Integer bookId;
 
   //TODO - this might be better as a String instead of an Integer.
   private Integer pageOn;
@@ -37,7 +38,7 @@ public class Export {
   private String chapterTitle;
 
   public Export() {
-    this.bookId = -1;
+//    this.bookId = -1;
     this.pageOn = -1;
     this.content = null;
     this.chapterNumber = -1;
@@ -45,7 +46,7 @@ public class Export {
   }
 
   public Export(Integer bookId, Integer pageOn, String content, Integer chapterNumber, String chapterTitle) {
-    this.bookId = bookId;
+//    this.bookId = bookId;
     this.pageOn = pageOn;
     this.content = content;
     this.chapterNumber = chapterNumber;
@@ -60,13 +61,13 @@ public class Export {
     this.id = id;
   }
 
-  public Integer getBookId() {
-    return bookId;
-  }
-
-  public void setBookId(Integer bookId) {
-    this.bookId = bookId;
-  }
+//  public Integer getBookId() {
+//    return bookId;
+//  }
+//
+//  public void setBookId(Integer bookId) {
+//    this.bookId = bookId;
+//  }
 
   public Integer getPageOn() {
     return pageOn;
