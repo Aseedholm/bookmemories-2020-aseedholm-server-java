@@ -1,5 +1,7 @@
 package com.bookmemories.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,11 +22,11 @@ public class Book {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-//  @OneToMany(mappedBy = "")
-//  private List<Quote> quotes;
-//
-//  @OneToMany(mappedBy = "")
-//  private List<Vocabulary> words;
+  @OneToMany(mappedBy = "book")
+  private List<Quote> quotes;
+
+  @OneToMany(mappedBy = "book")
+  private List<Vocabulary> words;
 
   private String bookVersion;
 
@@ -41,8 +43,8 @@ public class Book {
    */
   //null and empty are synonymous...
   public Book() {
-//    this.quotes = new ArrayList<Quote>();
-//    this.words = new ArrayList<Vocabulary>();
+    this.quotes = new ArrayList<Quote>();
+    this.words = new ArrayList<Vocabulary>();
     this.bookVersion = null;
     this.author = null;
     this.publisher = null;
@@ -64,8 +66,8 @@ public class Book {
    * @param pageCount an Integer representing the number of pages in the book.
    */
   public Book(List<Quote> quotes, List<Vocabulary> words, String bookVersion, String author, String publisher, String bookTitle, Integer pageCount) {
-//    this.quotes = quotes;
-//    this.words = words;
+    this.quotes = quotes;
+    this.words = words;
     this.bookVersion = bookVersion;
     this.author = author;
     this.publisher = publisher;
@@ -81,21 +83,21 @@ public class Book {
     this.id = id;
   }
 
-//  public List<Quote> getQuotes() {
-//    return quotes;
-//  }
-//
-//  public void setQuotes(List<Quote> quotes) {
-//    this.quotes = quotes;
-//  }
-//
-//  public List<Vocabulary> getWords() {
-//    return words;
-//  }
-//
-//  public void setWords(List<Vocabulary> words) {
-//    this.words = words;
-//  }
+  public List<Quote> getQuotes() {
+    return quotes;
+  }
+
+  public void setQuotes(List<Quote> quotes) {
+    this.quotes = quotes;
+  }
+
+  public List<Vocabulary> getWords() {
+    return words;
+  }
+
+  public void setWords(List<Vocabulary> words) {
+    this.words = words;
+  }
 
   public String getBookVersion() {
     return bookVersion;
